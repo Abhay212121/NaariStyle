@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div className="bg-white py-2 px-16 flex items-center justify-between font-display">
+    <div className="bg-white py-2 px-30 flex items-center justify-between font-display">
       <img
         src="/logo-down.png"
         alt="logo not found"
@@ -40,10 +40,10 @@ export default function Header() {
           </Link>
         </ul>
       </div>
-      <div className="hover:cursor-pointer">
+      <div className="hover:cursor-pointer hover:scale-105">
         <Icon
           path={mdiCartOutline}
-          size={1.5}
+          size={1.6}
         />
       </div>
     </div>

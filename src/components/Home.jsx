@@ -13,7 +13,7 @@ export default function Home() {
             exclusive fashion collections.
           </p>
           <Link to="/shop">
-            <button className="text-white font-body text-4xl border-2 p-5 mt-5 rounded-xl hover:cursor-pointer hover:scale-105 hover:transition-all duration-200">
+            <button className="text-black bg-[#DDEB9D] font-body text-4xl border-1 px-5 py-3 mt-5 rounded-xl hover:cursor-pointer hover:scale-105 hover:transition-all duration-200">
               Shop Now
             </button>
           </Link>

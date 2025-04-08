@@ -1,5 +1,5 @@
 import Icon from "@mdi/react";
-import { mdiLinkedin, mdiTwitter, mdiGithub, mdiInstagram } from "@mdi/js";
+import { mdiLinkedin, mdiGithub, mdiInstagram } from "@mdi/js";
 
 export default function Footer() {
   return (
@@ -28,6 +28,11 @@ export default function Footer() {
           <li className="hover:cursor-pointer hover:text-pink-800">Dress</li>
         </ul>
       </div>
+      <img
+        src="/logo-full.png"
+        alt="image not found"
+        className="w-1/7"
+      />
       <div className="flex flex-col gap-6">
         <h2 className="text-2xl underline">Get Help</h2>
         <ul className="text-xl flex flex-col gap-2">
@@ -55,22 +60,12 @@ export default function Footer() {
             className="hover:cursor-pointer hover:scale-105 hover:transition-all duration-100"
           />
           <Icon
-            path={mdiTwitter}
-            size={1.5}
-            className="hover:cursor-pointer hover:scale-105 hover:transition-all duration-100"
-          />
-          <Icon
             path={mdiGithub}
             size={1.5}
             className="hover:cursor-pointer hover:scale-105 hover:transition-all duration-100"
           />
         </div>
       </div>
-      <img
-        src="/logo-full.png"
-        alt="image not found"
-        className="w-1/8"
-      />
     </div>
   );
 }
