@@ -1,10 +1,32 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home.jsx";
+import About from "./components/About.jsx";
+import Shop from "./components/Shop.jsx";
+import Products from "./components/Products";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Header />
-      <h1 className="text-red-500">haanji hello</h1>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/shop"
+            element={<Shop />}
+          />
+          <Route
+            path="/about"
+            element={<About />}
+          />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

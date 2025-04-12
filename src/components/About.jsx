@@ -1,10 +1,6 @@
-import Footer from "./Footer";
-import Header from "./Header";
-
 export default function About() {
   return (
     <>
-      <Header />
       <h2 className="text-6xl text-center tracking-wide font-heading mt-5">
         Grace in Every Stitch
       </h2>
@@ -56,7 +52,6 @@ export default function About() {
           className="w-sm"
         />
       </div>
-      <Footer />
     </>
   );
 }
