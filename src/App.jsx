@@ -24,6 +24,10 @@ function App() {
             path="/about"
             element={<About />}
           />
+          <Route
+            path="/products/:category/:id"
+            element={<Products />}
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

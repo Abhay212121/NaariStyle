@@ -1,10 +1,9 @@
 import Icon from "@mdi/react";
 import { mdiCartOutline, mdiHome, mdiShopping, mdiAccount } from "@mdi/js";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const [selected, setSelected] = useState(0);
+  const location = useLocation();
 
   return (
     <div className="bg-[white] py-2 px-30 flex items-center justify-between font-heading">
@@ -15,10 +14,9 @@ export default function Header() {
       <div className="w-1/3 text-[black]">
         <ul className="flex gap-6">
           <li
-            className={selected == 0 ? "bg-[#ba757c70] rounded-xl" : "null"}
-            onClick={() => {
-              setSelected(0);
-            }}
+            className={
+              location.pathname == "/" ? "bg-[#ba757c70] rounded-xl" : "null"
+            }
           >
             <Link to={"/"}>
               <div className="flex items-center gap-1 rounded-md p-2  cursor-pointer">
@@ -31,10 +29,13 @@ export default function Header() {
             </Link>
           </li>
           <li
-            className={selected == 1 ? "bg-[#ba757c70] rounded-xl" : "null"}
-            onClick={() => {
-              setSelected(1);
-            }}
+            className={
+              location.pathname == "/shop"
+                ? "bg-[#ba757c70] rounded-xl"
+                : location.pathname.includes("/products")
+                ? "bg-[#ba757c70] rounded-xl"
+                : ""
+            }
           >
             <Link to={"/shop"}>
               <div className="flex items-center gap-1 rounded-md p-2    cursor-pointer">
@@ -47,10 +48,11 @@ export default function Header() {
             </Link>
           </li>
           <li
-            className={selected == 2 ? "bg-[#ba757c70] rounded-xl" : "null"}
-            onClick={() => {
-              setSelected(2);
-            }}
+            className={
+              location.pathname == "/about"
+                ? "bg-[#ba757c70] rounded-xl"
+                : "null"
+            }
           >
             <Link to={"/about"}>
               <div className="flex items-center gap-1 rounded-md p-2   cursor-pointer">
