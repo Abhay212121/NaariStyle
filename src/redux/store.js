@@ -6,6 +6,7 @@ import watchDataReducers from '../features/apiData/watchDataSlice'
 import shoesDataReducers from '../features/apiData/shoeDataSlice'
 import dressesDataReducer from '../features/apiData/dressesDataSlice'
 import selectedProductReducer from '../features/selected product/selectedProductSlice'
+import cartItemsReducer from '../features/cart/cartSlice'
 
 export default configureStore({
     reducer: {
@@ -15,6 +16,7 @@ export default configureStore({
         watchData: watchDataReducers,
         shoesData: shoesDataReducers,
         dressesData: dressesDataReducer,
-        selectedProduct: selectedProductReducer
+        selectedProduct: selectedProductReducer,
+        cartItems: cartItemsReducer
     }
 })

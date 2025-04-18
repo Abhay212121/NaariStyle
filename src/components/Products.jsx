@@ -10,6 +10,7 @@ import { fetchShoeData } from "../features/apiData/shoeDataSlice.js";
 import { selectObj } from "../features/selected product/selectedProductSlice.js";
 import Icon from "@mdi/react";
 import { mdiArrowLeftThin, mdiArrowRightThin } from "@mdi/js";
+import { addInCart } from "../features/cart/cartSlice.js";
 
 export default function Products() {
   const { id, category } = useParams();
@@ -118,6 +119,12 @@ export default function Products() {
     setImgIndex((prev) =>
       prev == selectedObj.images.length - 1 ? 0 : prev + 1
     );
+  }
+
+  function handleAddClick() {
+    let newObj = { ...selectedObj };
+    newObj.quantity = quantity;
+    dispatch(addInCart(newObj));
   }
 
   useEffect(() => {
@@ -244,7 +251,10 @@ export default function Products() {
               </div>
             </div>
             <div className="flex justify-start">
-              <button className="text-3xl w-2/5 border-2 py-2 my-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer ">
+              <button
+                onClick={handleAddClick}
+                className="text-3xl w-2/5 border-2 py-2 my-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
+              >
                 Add to Cart
               </button>
             </div>

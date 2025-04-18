@@ -13,6 +13,7 @@ import { fetchDressesData } from "./features/apiData/dressesDataSlice.js";
 import { fetchWatchData } from "./features/apiData/watchDataSlice.js";
 import { fetchJewelleryData } from "./features/apiData/jewelleriesDataSlice.js";
 import { fetchShoeData } from "./features/apiData/shoeDataSlice.js";
+import Cart from "./components/Cart.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,10 @@ function App() {
           <Route
             path="/products/:category/:id"
             element={<Products />}
+          />
+          <Route
+            path="/cart"
+            element={<Cart />}
           />
         </Routes>
         <Footer />

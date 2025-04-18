@@ -1,6 +1,7 @@
 import Icon from "@mdi/react";
 import { mdiCartOutline, mdiHome, mdiShopping, mdiAccount } from "@mdi/js";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const location = useLocation();
@@ -66,12 +67,14 @@ export default function Header() {
           </li>
         </ul>
       </div>
-      <div className="hover:cursor-pointer hover:scale-105">
-        <Icon
-          path={mdiCartOutline}
-          size={1.6}
-        />
-      </div>
+      <Link to={"/cart"}>
+        <div className="hover:cursor-pointer hover:scale-105">
+          <Icon
+            path={mdiCartOutline}
+            size={1.6}
+          />
+        </div>
+      </Link>
     </div>
   );
 }
