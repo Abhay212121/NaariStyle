@@ -5,8 +5,26 @@ import Shop from "./components/Shop.jsx";
 import Products from "./components/Products";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchBagsData } from "./features/apiData/bagsDataSlice.js";
+import { fetchTopsData } from "./features/apiData/topsDataSlice.js";
+import { fetchDressesData } from "./features/apiData/dressesDataSlice.js";
+import { fetchWatchData } from "./features/apiData/watchDataSlice.js";
+import { fetchJewelleryData } from "./features/apiData/jewelleriesDataSlice.js";
+import { fetchShoeData } from "./features/apiData/shoeDataSlice.js";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchBagsData());
+    dispatch(fetchTopsData());
+    dispatch(fetchDressesData());
+    dispatch(fetchShoeData());
+    dispatch(fetchWatchData());
+    dispatch(fetchJewelleryData());
+  }, []);
+
   return (
     <>
       <BrowserRouter>

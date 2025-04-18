@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import bagsDataReducer from '../features/bagsData/bagsDataSlice'
-import topsDataReducer from '../features/topsData/topsDataSlice'
-import jewelleriesDataReducer from '../features/jewelleriesData/jewelleriesDataSlice'
-import watchDataReducers from '../features/watchData/watchDataSlice'
-import shoesDataReducers from '../features/shoeData/shoeDataSlice'
-import dressesDataReducer from '../features/dressesData/dressesDataSlice'
+import bagsDataReducer from '../features/apiData/bagsDataSlice'
+import topsDataReducer from '../features/apiData/topsDataSlice'
+import jewelleriesDataReducer from '../features/apiData/jewelleriesDataSlice'
+import watchDataReducers from '../features/apiData/watchDataSlice'
+import shoesDataReducers from '../features/apiData/shoeDataSlice'
+import dressesDataReducer from '../features/apiData/dressesDataSlice'
+import selectedProductReducer from '../features/selected product/selectedProductSlice'
 
 export default configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export default configureStore({
         jewelleriesData: jewelleriesDataReducer,
         watchData: watchDataReducers,
         shoesData: shoesDataReducers,
-        dressesData: dressesDataReducer
+        dressesData: dressesDataReducer,
+        selectedProduct: selectedProductReducer
     }
 })
