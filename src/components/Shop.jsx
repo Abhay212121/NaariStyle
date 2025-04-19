@@ -24,7 +24,7 @@ export default function Shop() {
   }, []);
 
   return (
-    <>
+    <div>
       <img
         src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjJsd28wcTYyeDJoaW54MWZ5ZWZrZHp0aGp1Z2s3cXJudXp1OG1xeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrVbQSUiXzWi0U/giphy.gif"
         alt="image not found"
@@ -35,37 +35,37 @@ export default function Shop() {
       {!loading && (
         <div>
           <ProductCategory
-            data={topData.products}
+            data={topData?.products || []}
             heading={"Tops"}
             displayShop={displayShop}
           />
           <ProductCategory
-            data={dressesData.products}
+            data={dressesData?.products || []}
             heading={"Dresses"}
             displayShop={displayShop}
           />
           <ProductCategory
-            data={shoesData.products}
+            data={shoesData?.products || []}
             heading={"Shoes"}
             displayShop={displayShop}
           />
           <ProductCategory
-            data={watchData.products}
+            data={watchData?.products || []}
             heading={"Watches"}
             displayShop={displayShop}
           />
           <ProductCategory
-            data={bagData.products}
+            data={bagData?.products || []}
             heading={"Bags"}
             displayShop={displayShop}
           />
           <ProductCategory
-            data={jewelleriesData.products}
+            data={jewelleriesData?.products || []}
             heading={"Jewelleries"}
             displayShop={displayShop}
           />
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <>
-      <h2 className="text-6xl text-center tracking-wide font-heading mt-5">
+      <h2 className="text-6xl ml-34  text-center tracking-wide font-heading mt-5">
         Grace in Every Stitch
       </h2>
       <div className="flex px-80 gap-75 mt-20">

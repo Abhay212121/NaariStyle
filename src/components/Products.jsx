@@ -10,7 +10,7 @@ import { fetchShoeData } from "../features/apiData/shoeDataSlice.js";
 import { selectObj } from "../features/selected product/selectedProductSlice.js";
 import Icon from "@mdi/react";
 import { mdiArrowLeftThin, mdiArrowRightThin } from "@mdi/js";
-import { addInCart } from "../features/cart/cartSlice.js";
+import { addInCart, deleteFromCart } from "../features/cart/cartSlice.js";
 
 export default function Products() {
   const { id, category } = useParams();
@@ -28,6 +28,9 @@ export default function Products() {
   const shoesData = useSelector((state) => state.shoesData.data);
   const dressesData = useSelector((state) => state.dressesData.data);
   const selectedObj = useSelector((state) => state.selectedProduct.value);
+  const cartItems = useSelector((state) => state.cartItems);
+
+  const isInCart = cartItems.some((item) => item.id == id);
 
   useEffect(() => {
     switch (category) {
@@ -50,14 +53,14 @@ export default function Products() {
         dispatch(fetchBagsData());
         break;
     }
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 1000);
 
     setTimeout(() => {
       setDisplayFlag(true);
@@ -122,9 +125,13 @@ export default function Products() {
   }
 
   function handleAddClick() {
-    let newObj = { ...selectedObj };
-    newObj.quantity = quantity;
-    dispatch(addInCart(newObj));
+    if (!isInCart) {
+      let newObj = { ...selectedObj };
+      newObj.quantity = quantity;
+      dispatch(addInCart(newObj));
+    } else {
+      dispatch(deleteFromCart(id));
+    }
   }
 
   useEffect(() => {
@@ -145,7 +152,11 @@ export default function Products() {
         }`}
       />
       {!loading && selectObj && (
-        <div className="flex py-20 px-10 font-heading justify-around">
+        <div
+          className={`flex py-20 px-10 font-heading justify-around ${
+            DisplayFlag ? "" : "hidden"
+          }`}
+        >
           <div className="w-1/3 h-160 flex items-center justify-center ">
             <button
               className="cursor-pointer hover:bg-[#41403e44] rounded-md"
@@ -255,7 +266,7 @@ export default function Products() {
                 onClick={handleAddClick}
                 className="text-3xl w-2/5 border-2 py-2 my-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
               >
-                Add to Cart
+                {!isInCart ? "Add to cart" : "Remove from cart"}
               </button>
             </div>
           </div>

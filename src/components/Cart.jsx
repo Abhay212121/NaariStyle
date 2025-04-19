@@ -42,7 +42,8 @@ export default function Cart() {
         <img
           src={item.thumbnail}
           alt="image not found"
-          className="relative "
+          loading="lazy"
+          className="relative w-60 "
         />
         <div className="font-heading font-semibold w-full">
           <p className="text-3xl mb-1">{item.title}</p>
@@ -86,7 +87,7 @@ export default function Cart() {
 
   return displayFlag ? (
     <div className="h-195 flex items-center justify-center">
-      <h2 className="text-7xl text-[#C8651B] font-heading tracking-wider">
+      <h2 className="text-7xl text-[#C8651B] font-heading tracking-wider animate-bounce">
         Thanks for shopping with us!
       </h2>
     </div>

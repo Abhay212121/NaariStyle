@@ -1,10 +1,11 @@
 import Icon from "@mdi/react";
-import { mdiCartOutline, mdiHome, mdiShopping, mdiAccount } from "@mdi/js";
+import { mdiHome, mdiShopping, mdiAccount, mdiCartHeart } from "@mdi/js";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Header() {
   const location = useLocation();
+  const cartArr = useSelector((state) => state.cartItems);
 
   return (
     <div className="bg-[white] py-2 px-30 flex items-center justify-between font-heading">
@@ -68,10 +69,15 @@ export default function Header() {
         </ul>
       </div>
       <Link to={"/cart"}>
-        <div className="hover:cursor-pointer hover:scale-105">
+        <div className="hover:cursor-pointer items-center flex ">
+          {cartArr.length != 0 && (
+            <span className="text-xl absolute bg-white right-34 w-4 top-10  text-[#C8651B] font-bold font-heading   px-1">
+              {cartArr.length}
+            </span>
+          )}
           <Icon
-            path={mdiCartOutline}
-            size={1.6}
+            path={mdiCartHeart}
+            size={2}
           />
         </div>
       </Link>
