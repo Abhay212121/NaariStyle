@@ -6,6 +6,7 @@ import {
   decreaseQuantity,
   deleteFromCart,
   increaseQuantity,
+  resetCart,
 } from "../features/cart/cartSlice";
 import { useEffect, useState } from "react";
 
@@ -13,14 +14,27 @@ export default function Cart() {
   let data = useSelector((state) => state.cartItems);
   const dispatch = useDispatch();
   const [priceSum, setPriceSum] = useState(0);
+  const [displayFlag, setDisplayFlag] = useState(false);
 
   useEffect(() => {
     let price = 0;
     data.forEach((item) => {
       price = Math.round(price + item.price * 70 * item.quantity);
     });
-    setPriceSum((state) => price);
+    setPriceSum(price);
   }, [data]);
+
+  function submitFunc() {
+    if (data.length != 0) {
+      setDisplayFlag(true);
+      dispatch(resetCart());
+      setTimeout(() => {
+        setDisplayFlag(false);
+      }, 2000);
+    } else {
+      alert("The cart is empty!");
+    }
+  }
 
   function CartProduct({ item }) {
     return (
@@ -70,7 +84,13 @@ export default function Cart() {
     );
   }
 
-  return (
+  return displayFlag ? (
+    <div className="h-195 flex items-center justify-center">
+      <h2 className="text-7xl text-[#C8651B] font-heading tracking-wider">
+        Thanks for shopping with us!
+      </h2>
+    </div>
+  ) : (
     <div className="min-h-200 flex">
       <div className=" w-1/2 font-heading tracking-widest px-20 py-25">
         <div>
@@ -138,7 +158,12 @@ export default function Cart() {
             <span>All major credit cards accepted</span>
           </div>
         </div>
-        <button className="text-3xl w-full py-2 pb-3 my-4  font-semibold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer hover:scale-101 duration-150">
+        <button
+          onClick={() => {
+            submitFunc();
+          }}
+          className="text-3xl w-full py-2 pb-3 my-4  font-semibold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer hover:scale-101 duration-150"
+        >
           Checkout
         </button>
       </div>

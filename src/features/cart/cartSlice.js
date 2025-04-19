@@ -21,11 +21,14 @@ export const cartItemSlice = createSlice({
             if (item) {
                 item.quantity = item.quantity + 1;
             }
+        },
+        resetCart: (state) => {
+            return []
         }
     }
 
 })
 
-export const { addInCart, deleteFromCart, decreaseQuantity, increaseQuantity } = cartItemSlice.actions;
+export const { addInCart, deleteFromCart, decreaseQuantity, increaseQuantity, resetCart } = cartItemSlice.actions;
 
 export default cartItemSlice.reducer;
