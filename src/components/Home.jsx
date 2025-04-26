@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <div className=" h-190 sm:h-200 md:h-120 lg:h-140 xl:h-170 sm:mt-0 mb-20 sm:mb-20 md:mb-0 xl:mb-30 flex flex-col-reverse md:flex-row bg-[white] gap-6 sm:gap-10 justify-center items-center">
+      <div className=" h-180 sm:h-200 md:h-120 lg:h-140 xl:h-170 sm:mt-0 mb-20 sm:mb-20 md:mb-0 xl:mb-30 flex flex-col-reverse md:flex-row bg-[white] gap-6 sm:gap-10 justify-center items-center">
         <div className="w-4/5 sm:w-4/5 md:w-4/11 lg:w-4/11 xl:w-5/11 2xl:w-4/11 md:ml-0 lg:ml-20 xl:ml-30 flex gap-2 flex-col items-center md:inline ">
           <p className="text-4xl sm:text-5xl md:text-3xl lg:text-4xl xl:text-6xl text-black font-heading font-normal tracking-wide">
             Discover the perfect blend of elegance, comfort, and trend with our
