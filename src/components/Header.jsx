@@ -75,7 +75,7 @@ export default function Header() {
         <Link to={"/cart"}>
           <div className="hover:cursor-pointer relative items-center flex sm:p-0 p-1 ">
             {cartArr.length != 0 && (
-              <span className="text-sm sm:text-xl absolute bg-white left-5 bottom-8 sm:left-4 sm:bottom-8 w-4  text-[#C8651B] font-bold font-heading px-1">
+              <span className="text-sm sm:text-xl absolute bg-white left-5 bottom-8 sm:left-4 rounded-2xl sm:bottom-8 w-4  text-[#C8651B] font-bold font-heading px-1">
                 {cartArr.length}
               </span>
             )}
