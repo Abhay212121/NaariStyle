@@ -113,12 +113,14 @@ export default function Products() {
   ]);
 
   function decreaseIndex() {
+    if (!selectedObj?.images?.length) return;
     setImgIndex((prev) =>
       prev == 0 ? selectedObj.images.length - 1 : prev - 1
     );
   }
 
   function increaseIndex() {
+    if (!selectedObj?.images?.length) return;
     setImgIndex((prev) =>
       prev == selectedObj.images.length - 1 ? 0 : prev + 1
     );
@@ -144,20 +146,24 @@ export default function Products() {
   }, [selectedObj]);
   return (
     <>
-      <img
-        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjJsd28wcTYyeDJoaW54MWZ5ZWZrZHp0aGp1Z2s3cXJudXp1OG1xeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrVbQSUiXzWi0U/giphy.gif"
-        alt="image not found"
-        className={`h-200 relative bottom-22 p-30 m-auto ${
-          DisplayFlag ? "hidden " : ""
+      <div
+        className={` h-220 sm:h-220 lg:h-205 relative bottom-22 items-center justify-center  ${
+          DisplayFlag ? "hidden " : "flex"
         }`}
-      />
+      >
+        <img
+          src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjJsd28wcTYyeDJoaW54MWZ5ZWZrZHp0aGp1Z2s3cXJudXp1OG1xeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrVbQSUiXzWi0U/giphy.gif"
+          alt="image not found"
+          className="2xl:w-3/11 xl:w-3/7 lg:w-3/7"
+        />
+      </div>
       {!loading && selectObj && (
         <div
-          className={`flex py-20 px-10 font-heading justify-around ${
+          className={` font-heading flex flex-col lg:flex-row pt-10 sm:py-0 lg:py-20 items-center lg:justify-evenly xl:justify-around ${
             DisplayFlag ? "" : "hidden"
           }`}
         >
-          <div className="w-1/3 h-160 flex items-center justify-center ">
+          <div className="w-5/7 sm:w-3/5 lg:w-1/3 lg:h-160 flex items-center justify-center ">
             <button
               className="cursor-pointer hover:bg-[#41403e44] rounded-md"
               onClick={() => {
@@ -169,10 +175,12 @@ export default function Products() {
                 size={2}
               />
             </button>
-            <img
-              src={selectedObj.images[imgIndex]}
-              alt="image not found"
-            />
+            {selectedObj?.images?.length > 0 && (
+              <img
+                src={selectedObj.images[imgIndex]}
+                alt="image not found"
+              />
+            )}
             <button
               className="cursor-pointer hover:bg-[#41403e44] rounded-md"
               onClick={() => {
@@ -185,7 +193,7 @@ export default function Products() {
               />
             </button>
           </div>
-          <div className=" w-2/5 p-10">
+          <div className="sm:w-4/5 lg:w-2/5 p-10">
             <p className="text-4xl font-bold text-[#C8651B] tracking-wide ">
               {selectedObj.title}
             </p>
@@ -202,7 +210,7 @@ export default function Products() {
               {selectedObj.description}
             </p>
 
-            <div className="flex gap-2 my-1">
+            <div className="2xl:flex gap-2 mb-5 2xl:mb-0 my-1">
               <p className="text-2xl tracking-wider font-bold">Dimensions:</p>
               <p className="text-2xl text-[#454341] tracking-wider ">
                 <span className="pr-2">
@@ -264,7 +272,7 @@ export default function Products() {
             <div className="flex justify-start">
               <button
                 onClick={handleAddClick}
-                className="text-3xl w-2/5 border-2 py-2 my-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
+                className="text-3xl w-3/5 sm:w-2/5 border-2 py-2 mt-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
               >
                 {!isInCart ? "Add to cart" : "Remove from cart"}
               </button>
