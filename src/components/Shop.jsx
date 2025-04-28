@@ -14,9 +14,7 @@ export default function Shop() {
   const dressesData = useSelector((state) => state.dressesData.data);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
+    setLoading(false);
 
     setTimeout(() => {
       setDisplayShop(true);
@@ -25,13 +23,17 @@ export default function Shop() {
 
   return (
     <div>
-      <img
-        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjJsd28wcTYyeDJoaW54MWZ5ZWZrZHp0aGp1Z2s3cXJudXp1OG1xeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrVbQSUiXzWi0U/giphy.gif"
-        alt="image not found"
-        className={`h-200 relative bottom-22 p-30 m-auto ${
-          displayShop ? "hidden " : ""
+      <div
+        className={` h-220 sm:h-220 lg:h-205 relative bottom-22 items-center justify-center  ${
+          displayShop ? "hidden " : "flex"
         }`}
-      />
+      >
+        <img
+          src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjJsd28wcTYyeDJoaW54MWZ5ZWZrZHp0aGp1Z2s3cXJudXp1OG1xeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrVbQSUiXzWi0U/giphy.gif"
+          alt="image not found"
+          className="2xl:w-3/11 xl:w-3/7 lg:w-3/7"
+        />
+      </div>
       {!loading && (
         <div>
           <ProductCategory
