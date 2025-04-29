@@ -28,9 +28,9 @@ export default function Cart() {
     if (data.length != 0) {
       setDisplayFlag(true);
       dispatch(resetCart());
-      setTimeout(() => {
-        setDisplayFlag(false);
-      }, 2000);
+      // setTimeout(() => {
+      //   setDisplayFlag(false);
+      // }, 2000);
     } else {
       alert("The cart is empty!");
     }
@@ -38,17 +38,20 @@ export default function Cart() {
 
   function CartProduct({ item }) {
     return (
-      <div className="border-4 border-[#C8651B] flex items-center h-66 rounded-2xl my-10 w-4/5 ml-20">
-        <img
-          src={item.thumbnail}
-          alt="image not found"
-          loading="lazy"
-          className="relative w-60 "
-        />
+      <div className="border-4 border-[#C8651B] flex items-center h-66 rounded-2xl my-10 w-4/5 sm:ml-20">
+        <div className="relative w-60 ">
+          <img
+            src={item.thumbnail}
+            alt="image not found"
+            loading="lazy"
+          />
+        </div>
         <div className="font-heading font-semibold w-full">
-          <p className="text-3xl mb-1">{item.title}</p>
-          <p className="text-2xl mb-2">₹ {Math.round(item.price * 70)}</p>
-          <div className="flex items-center text-2xl gap-1 mb-2">
+          <p className="text-2xl sm:text-3xl mb-1">{item.title}</p>
+          <p className="text-xl sm:text-2xl mb-2">
+            ₹ {Math.round(item.price * 70)}
+          </p>
+          <div className="flex items-center text-xl sm:text-2xl gap-1 mb-2">
             <button
               onClick={() => {
                 dispatch(decreaseQuantity(item.id));
@@ -76,7 +79,7 @@ export default function Cart() {
             onClick={() => {
               dispatch(deleteFromCart(item.id));
             }}
-            className="text-xl w-1/3 border-2 py-2 pb-3 font-semibold text-white rounded-xl bg-[#C8651B] tracking-wideset cursor-pointer"
+            className="text-xl w-5/6 sm:w-35 border-2 py-2 pb-3 font-semibold text-white rounded-xl bg-[#C8651B] tracking-wideset cursor-pointer"
           >
             Remove
           </button>
@@ -86,16 +89,16 @@ export default function Cart() {
   }
 
   return displayFlag ? (
-    <div className="h-195 flex items-center justify-center">
-      <h2 className="text-7xl text-[#C8651B] font-heading tracking-wider animate-bounce">
+    <div className="h-195 flex items-center justify-center ">
+      <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#C8651B] font-heading tracking-wider animate-bounce">
         Thanks for shopping with us!
       </h2>
     </div>
   ) : (
-    <div className="min-h-200 flex">
-      <div className=" w-1/2 font-heading tracking-widest px-20 py-25">
+    <div className="min-h-200 flex flex-col lg:flex-row items-center lg:items-start lg:my-0 my-10">
+      <div className="w-full sm:w-3/4 lg:w-1/2 font-heading tracking-widest 2xl:px-20 2xl:py-25 xl:px-10 xl:py-15 sm:px-0 px-5 flex flex-col items-center sm:block">
         <div>
-          <h2 className="text-4xl font-bold my-4 ml-20">Cart</h2>
+          <h2 className="text-4xl font-bold my-4 sm:ml-20">Cart</h2>
         </div>
         {data.length != 0 ? (
           data.map((item) => (
@@ -105,7 +108,7 @@ export default function Cart() {
             />
           ))
         ) : (
-          <p className="text-3xl ml-20">
+          <p className="text-2xl sm:text-3xl md:ml-20">
             Your cart is empty,{" "}
             <Link to={"/shop"}>
               <span className="underline text-[#c8661bb8]">Shop Now!</span>
@@ -113,7 +116,7 @@ export default function Cart() {
           </p>
         )}
       </div>
-      <div className=" w-2/5 m-auto font-heading tracking-widest px-20 py-15 ">
+      <div className="w-full sm:w-6/7 lg:w-2/5 m-auto font-heading tracking-widest 2xl:px-20 2xl:py-15 xl:px-10 xl:py-10 sm:px-0 px-8 ">
         <h2 className="text-4xl font-bold my-4">Bill</h2>
         <div className="flex justify-between text-2xl mt-2">
           <p>Subtotal</p>
@@ -137,13 +140,13 @@ export default function Cart() {
         </div>
         <div>
           <h2 className="text-2xl my-2">Discount Coupon</h2>
-          <div className=" mb-6 flex justify-between  ">
+          <div className=" mb-6 flex xl:justify-between lg:justify-center ">
             <input
               type="text"
               placeholder="Enter Coupon Code"
               className="border-2 w-full px-4 mr-20 rounded-xl text-2xl border-[#C8651B]"
             />
-            <button className="text-3xl w-1/2 border-2 py-2 pb-3 font-semibold text-white rounded-xl bg-[#C8651B] tracking-wideset cursor-not-allowed">
+            <button className="text-3xl w-2/3 xl:w-1/2 border-2 py-2 pb-3 font-semibold text-white rounded-xl bg-[#C8651B] tracking-wideset cursor-not-allowed">
               Apply
             </button>
           </div>
