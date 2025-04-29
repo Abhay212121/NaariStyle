@@ -38,7 +38,7 @@ export default function Cart() {
 
   function CartProduct({ item }) {
     return (
-      <div className="border-4 border-[#C8651B] flex items-center h-50 sm:h-66 rounded-2xl my-10 w-4/5 sm:ml-20">
+      <div className="border-4 border-[#C8651B] flex items-center h-50 sm:h-66 rounded-2xl my-3 sm:my-10 w-4/5 sm:ml-20">
         <div className="relative w-60 ">
           <img
             src={item.thumbnail}
