@@ -194,25 +194,27 @@ export default function Products() {
             </button>
           </div>
           <div className="sm:w-4/5 lg:w-2/5 p-10">
-            <p className="text-4xl font-bold text-[#C8651B] tracking-wide ">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#C8651B] tracking-wide ">
               {selectedObj.title}
             </p>
-            <div className="flex items-center gap-2 py-1 font-bold text-3xl tracking-widest">
+            <div className="flex items-center gap-2 py-1 font-bold text-xl sm:text-3xl tracking-widest">
               <p className="text-[#423C3A]">
                 ₹{Math.round(selectedObj.price * 70)}
               </p>
-              <p className="text-[#6C6B6A] line-through text-xl">
+              <p className="text-[#6C6B6A] line-through ">
                 ₹{Math.round(selectedObj.price * 70 + 800)}
               </p>
             </div>
             <div className="border-b-3 my-6 border-grey"></div>
-            <p className="text-2xl tracking-wider mb-10">
+            <p className="text-lg sm:text-2xl tracking-wider mb-10">
               {selectedObj.description}
             </p>
 
             <div className="2xl:flex gap-2 mb-5 2xl:mb-0 my-1">
-              <p className="text-2xl tracking-wider font-bold">Dimensions:</p>
-              <p className="text-2xl text-[#454341] tracking-wider ">
+              <p className="text-xl sm:text-2xl tracking-wider font-bold">
+                Dimensions:
+              </p>
+              <p className="text-lg sm:text-2xl text-[#454341] tracking-wider ">
                 <span className="pr-2">
                   width: {selectedObj.dimensions.width},
                 </span>
@@ -223,26 +225,28 @@ export default function Products() {
               </p>
             </div>
             <div className="flex gap-2 my-1">
-              <p className="text-2xl tracking-wider font-bold">Rating:</p>
-              <p className="text-2xl text-[#454341] tracking-wider ">
+              <p className="text-xl sm:text-2xl tracking-wider font-bold">
+                Rating:
+              </p>
+              <p className="text-lg sm:text-2xl text-[#454341] tracking-wider ">
                 {selectedObj.rating}/5
               </p>
             </div>
             <div className="px-7 my-2">
               <ul>
-                <li className="list-disc text-2xl text-[#454341] tracking-wider">
+                <li className="list-disc text-lg sm:text-2xl text-[#454341] tracking-wider">
                   {selectedObj.shippingInformation}
                 </li>
-                <li className="list-disc text-2xl text-[#454341] tracking-wider">
+                <li className="list-disc text-lg sm:text-2xl text-[#454341] tracking-wider">
                   {selectedObj.warrantyInformation}
                 </li>
               </ul>
             </div>
             <div className="flex gap-2 items-center">
-              <p className="text-2xl tracking-wider font-bold my-5">
+              <p className="text-lg sm:text-2xl tracking-wider font-bold my-5">
                 Quantity:
               </p>
-              <div className="flex gap-1 text-2xl ">
+              <div className="flex gap-1 text-lg sm:text-2xl ">
                 <button
                   onClick={() => {
                     setQuantity((state) => (state > 1 ? state - 1 : 1));
@@ -272,7 +276,7 @@ export default function Products() {
             <div className="flex justify-start">
               <button
                 onClick={handleAddClick}
-                className="text-3xl w-3/5 sm:w-2/5 border-2 py-2 mt-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
+                className="text-xl sm:text-2xl lg:text-3xl px-10 sm:w-2/5 border-2 py-2 mt-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
               >
                 {!isInCart ? "Add to cart" : "Remove from cart"}
               </button>
