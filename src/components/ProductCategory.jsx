@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function SingleProudct({ src, id, title, heading }) {
   return (
     <Link to={`/products/${heading.toLowerCase()}/${id}`}>
-      <div className="border-2 border-pink-200 w-32 sm:w-50 lg:w-60  sm:h-80 m-5 rounded-2xl bg-[#E1C2C5] flex flex-col items-center p-2 hover:cursor-pointer hover:scale-105 duration-100 hover:bg-[#cd979d] ">
+      <div className="border-2 border-pink-200 w-36 sm:w-50 lg:w-60 h-50 sm:h-80 m-3 sm:m-5 rounded-2xl bg-[#E1C2C5] flex flex-col items-center p-1 sm:p-2 hover:cursor-pointer hover:scale-105 duration-100 hover:bg-[#cd979d] ">
         <div className="w-full">
           <img
             src={src}
@@ -11,7 +11,7 @@ function SingleProudct({ src, id, title, heading }) {
             className="w-full"
           />
         </div>
-        <p className="font-body font-bold text-center text-md sm:text-xl px-2">
+        <p className="font-body font-bold text-center text-sm sm:text-xl px-2">
           {title}
         </p>
       </div>
