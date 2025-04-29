@@ -24,7 +24,7 @@ export default function Shop() {
   return (
     <div>
       <div
-        className={` h-220 sm:h-220 lg:h-205 relative bottom-22 items-center justify-center  ${
+        className={`h-[90vh] relative bottom-22 items-center justify-center  ${
           displayShop ? "hidden " : "flex"
         }`}
       >

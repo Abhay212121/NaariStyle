@@ -8,16 +8,16 @@ export default function Header() {
   const cartArr = useSelector((state) => state.cartItems);
 
   return (
-    <div className="container mx-auto overflow-hidden">
-      <div className="px-6 py-4 sm:p-2 flex items-center justify-between font-heading">
-        <div className="w-3/7 sm:inline sm:w-1/3 xl:w-1/4">
+    <header className="sticky bg-white top-0 w-[99vw] z-10">
+      <div className="px-4 py-4 container mx-auto sm:px-10 w-full flex items-center justify-between font-heading">
+        <div className="w-40">
           <img
             src="/logo-down.png"
             alt="logo not found"
             className="h-full w-full"
           />
         </div>
-        <div className="w-1/3 text-[black]">
+        <div className="text-[black]">
           <ul className="flex gap-0 lg:gap-6">
             <li
               className={
@@ -26,10 +26,7 @@ export default function Header() {
             >
               <Link to={"/"}>
                 <div className="flex items-center xs:gap-1 rounded-md p-1 sm:p-2 cursor-pointer">
-                  <Icon
-                    path={mdiHome}
-                    size={1.7}
-                  />
+                  <Icon path={mdiHome} size={1.7} />
                   <p className="text-2xl hidden lg:inline-block ">Home</p>
                 </div>
               </Link>
@@ -45,10 +42,7 @@ export default function Header() {
             >
               <Link to={"/shop"}>
                 <div className="flex items-center gap-1 rounded-md p-1 sm:p-2 cursor-pointer">
-                  <Icon
-                    path={mdiShopping}
-                    size={1.5}
-                  />
+                  <Icon path={mdiShopping} size={1.5} />
                   <p className="text-2xl hidden lg:inline-block">Shop</p>
                 </div>
               </Link>
@@ -62,10 +56,7 @@ export default function Header() {
             >
               <Link to={"/about"}>
                 <div className="flex items-center gap-1 rounded-md p-1 sm:p-2 cursor-pointer">
-                  <Icon
-                    path={mdiAccount}
-                    size={1.5}
-                  />
+                  <Icon path={mdiAccount} size={1.5} />
                   <p className="text-2xl hidden lg:inline-block">About</p>
                 </div>
               </Link>
@@ -79,14 +70,10 @@ export default function Header() {
                 {cartArr.length}
               </span>
             )}
-            <Icon
-              path={mdiCartHeart}
-              size={2}
-              className="p-1.5 sm:p-0"
-            />
+            <Icon path={mdiCartHeart} size={2} className="p-1.5 sm:p-0" />
           </div>
         </Link>
       </div>
-    </div>
+    </header>
   );
 }

@@ -38,7 +38,7 @@ export default function Cart() {
 
   function CartProduct({ item }) {
     return (
-      <div className="border-4 border-[#C8651B] flex items-center h-50 sm:h-66 rounded-2xl my-3 sm:my-10 w-4/5 sm:ml-20">
+      <div className="border-4 border-[#C8651B] flex items-center gap-4 justify-between h-50 sm:h-66 rounded-2xl my-3 sm:my-10 w-full sm:ml-20">
         <div className="relative w-60 ">
           <img
             src={item.thumbnail}
@@ -47,7 +47,7 @@ export default function Cart() {
             className="w-full"
           />
         </div>
-        <div className="font-heading font-semibold w-full">
+        <div className="font-heading font-semibold w-1/2 ">
           <p className="text-xl sm:text-3xl mb-1">{item.title}</p>
           <p className="text-lg sm:text-2xl mb-2">
             ₹ {Math.round(item.price * 70)}
@@ -102,12 +102,7 @@ export default function Cart() {
           <h2 className="text-3xl sm:text-4xl font-bold my-4 sm:ml-20">Cart</h2>
         </div>
         {data.length != 0 ? (
-          data.map((item) => (
-            <CartProduct
-              key={item.id}
-              item={item}
-            />
-          ))
+          data.map((item) => <CartProduct key={item.id} item={item} />)
         ) : (
           <p className="text-xl sm:text-3xl md:ml-20">
             Your cart is empty,{" "}
@@ -155,11 +150,7 @@ export default function Cart() {
         <div>
           <h2 className="text-xl sm:text-2xl font-bold ">Payment Methods</h2>
           <div className="flex sm:gap-4 text-xl sm:text-2xl items-center">
-            <Icon
-              path={mdiCreditCard}
-              size={3}
-              className="sm:p-2 p-3"
-            />
+            <Icon path={mdiCreditCard} size={3} className="sm:p-2 p-3" />
             <span>All major credit cards accepted</span>
           </div>
         </div>
