@@ -276,7 +276,7 @@ export default function Products() {
             <div className="flex justify-start">
               <button
                 onClick={handleAddClick}
-                className="text-xl sm:text-2xl lg:text-3xl px-10 sm:w-2/5 border-2 py-2 mt-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
+                className="text-xl sm:text-2xl lg:text-3xl px-6 sm:w-[41%] border-2 py-2 mt-4  font-bold text-white rounded-xl bg-[#C8651B] tracking-wide cursor-pointer "
               >
                 {!isInCart ? "Add to cart" : "Remove from cart"}
               </button>
